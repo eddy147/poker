@@ -27,7 +27,105 @@ defmodule Poker do
 
   Example hand: ~w(4S 5H 4C 5D 4H) # Full house, 5s over 4s
   """
+
+  defmodule Card do
+    defstruct value: 0, colour: nil
+  end
+
   @spec best_hand(list(list(String.t()))) :: list(list(String.t()))
-  def best_hand(hands) do
+  def best_hand([h | t]) do
+    cond do
+      Enum.empty?(t) -> [h]
+    end
+  end
+
+  defp convert_hand_to_cards
+
+  defp five_of_a_kind?(hand) do
+    false
+  end
+
+  defp straight_flush?(hand) do
+    false
+  end
+
+  defp four_of_a_kind?(hand) do
+    false
+  end
+
+  defp full_house?(hand) do
+    false
+  end
+
+  defp flush?(hand) do
+    false
+  end
+
+  defp straight?(hand) do
+    false
+  end
+
+  defp three_of_a_kind?(hand) do
+    false
+  end
+
+  defp two_pair?(hand) do
+    false
+  end
+
+  defp pair?(hand) do
+    false
+  end
+
+  defp ace?(hand) do
+    false
+  end
+
+  defp king?(hand) do
+    false
+  end
+
+  defp queen?(hand) do
+    false
+  end
+
+  defp jack?(hand) do
+    false
+  end
+
+  defp ten?(hand) do
+    false
+  end
+
+  defp nine?(hand) do
+    false
+  end
+
+  defp eight?(hand) do
+    false
+  end
+
+  defp seven?(hand) do
+    false
+  end
+
+  defp six?(hand) do
+    false
+  end
+
+  defp five?(hand) do
+    false
+  end
+
+  defp four?(hand) do
+    false
+  end
+
+  defp three?(hand) do
+    false
+  end
+
+  defp two?(hand) do
+    false
   end
 end
