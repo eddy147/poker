@@ -34,98 +34,115 @@ defmodule Poker do
 
   @spec best_hand(list(list(String.t()))) :: list(list(String.t()))
   def best_hand([h | t]) do
-    cond do
-      Enum.empty?(t) -> [h]
+    cards = convert_hand_to_cards(h)
+    IO.inspect(cards)
+  end
+
+  defp convert_hand_to_cards(hand), do: convert_hand_to_cards(hand, [])
+  defp convert_hand_to_cards([], cards), do: cards
+
+  defp convert_hand_to_cards([h|t], cards) do
+    [symbol, colour] = String.graphemes(h)
+    convert_hand_to_cards(t, cards ++ [%Card{value: to_value(symbol), colour: colour}])
+  end
+
+  defp five_of_a_kind?(cards) do
+    false
+  end
+
+  defp straight_flush?(cards) do
+    false
+  end
+
+  defp four_of_a_kind?(cards) do
+    false
+  end
+
+  defp full_house?(cards) do
+    false
+  end
+
+  defp flush?(cards) do
+    false
+  end
+
+  defp straight?(cards) do
+    false
+  end
+
+  defp three_of_a_kind?(cards) do
+    false
+  end
+
+  defp two_pair?(cards) do
+    false
+  end
+
+  defp pair?(cards) do
+    false
+  end
+
+  defp ace?(cards) do
+    false
+  end
+
+  defp king?(cards) do
+    false
+  end
+
+  defp queen?(cards) do
+    false
+  end
+
+  defp jack?(cards) do
+    false
+  end
+
+  defp ten?(cards) do
+    false
+  end
+
+  defp nine?(cards) do
+    false
+  end
+
+  defp eight?(cards) do
+    false
+  end
+
+  defp seven?(cards) do
+    false
+  end
+
+  defp six?(cards) do
+    false
+  end
+
+  defp five?(cards) do
+    false
+  end
+
+  defp four?(cards) do
+    false
+  end
+
+  defp three?(cards) do
+    false
+  end
+
+  defp two?(cards) do
+    false
+  end
+
+  defp to_value(symbol) do
+    case symbol do
+      "A" -> 14
+      "H" -> 13
+      "Q" -> 12
+      "J" -> 11
+      _ ->
+        {v, _} = Integer.parse(symbol)
+        v
     end
-  end
-
-  defp convert_hand_to_cards
-
-  defp five_of_a_kind?(hand) do
-    false
-  end
-
-  defp straight_flush?(hand) do
-    false
-  end
-
-  defp four_of_a_kind?(hand) do
-    false
-  end
-
-  defp full_house?(hand) do
-    false
-  end
-
-  defp flush?(hand) do
-    false
-  end
-
-  defp straight?(hand) do
-    false
-  end
-
-  defp three_of_a_kind?(hand) do
-    false
-  end
-
-  defp two_pair?(hand) do
-    false
-  end
-
-  defp pair?(hand) do
-    false
-  end
-
-  defp ace?(hand) do
-    false
-  end
-
-  defp king?(hand) do
-    false
-  end
-
-  defp queen?(hand) do
-    false
-  end
-
-  defp jack?(hand) do
-    false
-  end
-
-  defp ten?(hand) do
-    false
-  end
-
-  defp nine?(hand) do
-    false
-  end
-
-  defp eight?(hand) do
-    false
-  end
-
-  defp seven?(hand) do
-    false
-  end
-
-  defp six?(hand) do
-    false
-  end
-
-  defp five?(hand) do
-    false
-  end
-
-  defp four?(hand) do
-    false
-  end
-
-  defp three?(hand) do
-    false
-  end
-
-  defp two?(hand) do
-    false
   end
 end
